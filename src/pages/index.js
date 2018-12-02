@@ -1,44 +1,72 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
+import github from '../img/github-icon.svg'
+import linkedin from '../img/ln-icon.png'
+import instagram from '../img/instagram-icon.png'
 import Layout from '../components/Layout'
 
 export default class IndexPage extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
-
     return (
       <Layout>
         <section className="section">
           <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
+            <div className="content" style={{ maxWidth: '400px' }}>
+              <h1 className="has-text-weight-bold is-size-2">Piotr Roksela</h1>
+              <p>
+                Hi! I'm a Python Developer from southern Poland.
+                Currently working for <a href="https://www.boldare.com/">Boldare</a>.
+                Owner of <a href="http://kofilabs.com/">KofiLabs</a>.
+              </p>
+              <p>
+                Contact me at: <a href='mailto&#58;p%69o%74%72 [a&#37;&#55;4&#93; r%6F&#107;sela&#37;2Ep&#37;&#54;C'>&#112;iotr@rok&#115;e&#108;a&#46;p&#108;</a>.
+              </p>
+              <a
+                href="https://github.com/roxel"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={github} alt="Github" style={{ height: '20px' }} />
+                </span>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/piotr-roksela"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={linkedin} alt="LinkedIn" style={{ height: '20px' }} />
+                </span>
+              </a>
+              <a
+                href="https://www.instagram.com/therocksels/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="icon">
+                  <img src={instagram} alt="Instagram" style={{ height: '20px' }} />
+                </span>
+              </a>
+              <div className="columns">
+                <div className="column">
+                  <Link to="/sprints">
+                    Sprints
+                  </Link>
                 </div>
-              ))}
+                <div className="column">
+                  <Link to="/blog">
+                    Blog
+                  </Link>
+                </div>
+                <div className="column">
+                  <Link to="/about">
+                    About
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
       </Layout>
@@ -53,27 +81,3 @@ IndexPage.propTypes = {
     }),
   }),
 }
-
-export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-          }
-        }
-      }
-    }
-  }
-`

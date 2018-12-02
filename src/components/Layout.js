@@ -23,6 +23,8 @@ const TemplateWrapper = ({ children }) => (
           <html lang="en" />
           <title>{data.site.siteMetadata.title}</title>
           <meta name="description" content={data.site.siteMetadata.description} />
+          <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700&amp;subset=latin-ext"
+                rel="stylesheet" />
         </Helmet>
         <Navbar />
         <div>{children}</div>
