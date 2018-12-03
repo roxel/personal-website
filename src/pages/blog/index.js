@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
-export default class IndexPage extends React.Component {
+export default class BlogIndexPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -13,7 +13,7 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Blog</h1>
+              <h2 className="has-text-weight-bold is-size-2">Blog</h2>
             </div>
             {posts
               .map(({ node: post }) => (
@@ -46,7 +46,7 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
+BlogIndexPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -54,8 +54,8 @@ IndexPage.propTypes = {
   }),
 }
 
-export const pageQuery = graphql`
-  query IndexQuery {
+export const blogPageQuery = graphql`
+  query BlogIndexQuery {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] },
       filter: { frontmatter: { templateKey: { eq: "blog-post" } }}

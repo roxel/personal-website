@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import github from '../img/github-icon.svg'
 import linkedin from '../img/ln-icon.png'
 import instagram from '../img/instagram-icon.png'

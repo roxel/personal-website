@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
 import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-export const BlogPostTemplate = ({
+export const SprintPostTemplate = ({
   content,
   contentComponent,
-  description,
-  tags,
+  date,
+  finished,
+  objective,
   title,
   helmet,
 }) => {
@@ -22,23 +22,26 @@ export const BlogPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light has-text-primary">
               {title}
             </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
+            <div
+              style={{ marginBottom: "2em" }}
+            >
+              <div>
+                <strong>Date started: </strong>
+                {date}
               </div>
-            ) : null}
+              <div>
+                <strong>Date finished: </strong>
+                {finished}
+              </div>
+              <div>
+                <strong>Objective: </strong>
+                {objective}
+              </div>
+            </div>
+            <PostContent content={content} />
           </div>
         </div>
       </div>
@@ -46,7 +49,7 @@ export const BlogPostTemplate = ({
   )
 }
 
-BlogPostTemplate.propTypes = {
+SprintPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -54,48 +57,50 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
 }
 
-const BlogPost = ({ data }) => {
+const SprintPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
     <Layout>
-      <BlogPostTemplate
+      <SprintPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
           <Helmet
-            titleTemplate="%s | Blog"
+            titleTemplate="%s | Sprints"
           >
             <title>{`${post.frontmatter.title}`}</title>
-            <meta name="description" content={`${post.frontmatter.description}`} />
+            <meta name="description" content={`${post.frontmatter.objective}`} />
           </Helmet>
         }
-        tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
+        finished={post.frontmatter.finished}
+        objective={post.frontmatter.objective}
       />
     </Layout>
   )
 }
 
-BlogPost.propTypes = {
+SprintPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
 }
 
-export default BlogPost
+export default SprintPost
 
-export const blogPageQuery = graphql`
-  query BlogPostByID($id: String!) {
+export const sprintPageQuery = graphql`
+  query SprintPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
+        finished(formatString: "MMMM DD, YYYY")
         title
-        description
-        tags
+        objective
       }
     }
   }

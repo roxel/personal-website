@@ -18,6 +18,18 @@ collections:
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
+  - name: "sprint"
+    label: "Sprint"
+    folder: "src/pages/sprints"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sprint-post"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date started", name: "date", widget: "date"}
+      - {label: "Objective", name: "objective", widget: "text"}
+      - {label: "Result", name: "result", widget: "text"}
+      - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "pages"
     label: "Pages"
