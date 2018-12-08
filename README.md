@@ -1,5 +1,7 @@
 # Personal website
 
+Currently hosted on [temporary address](https://jovial-easley-190857.netlify.com/).
+
 **Note:** Based on and inspired by: [Gatsby + Netlify CMS Starter](https://github.com/netlify-templates/gatsby-starter-netlify-cms)
 
 ## Prerequisites

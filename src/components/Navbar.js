@@ -2,27 +2,30 @@ import React from 'react'
 import { Link } from 'gatsby'
 import logo from '../img/logo-pr.png'
 
-const Navbar = () => (
-  <nav className="navbar is-transparent">
-    <div className="container">
-      <div className="navbar-brand">
-        <Link to="/" className="navbar-item" title="Logo">
-          <img src={logo} alt="PR" />
-        </Link>
-      </div>
-      <div className="navbar-end">
-        <Link className="navbar-item" to="/sprints">
-          Sprints
-        </Link>
-        <Link className="navbar-item" to="/blog">
-          Blog
-        </Link>
-        <Link className="navbar-item" to="/about">
-          About
-        </Link>
-      </div>
-    </div>
-  </nav>
-)
+
+class Navbar extends React.Component {
+  render() {
+    return (
+      <nav className="navigation" role="navigation" aria-label="main navigation">
+        <div className="container is-centered">
+          <Link to="/" title="Logo" className="navbar-logo">
+            <img src={logo} alt="PR" />
+          </Link>
+          <div className="level is-mobile">
+            <Link to="/sprints" className="level-item navbar-button">
+              Sprints
+            </Link>
+            <Link to="/blog" className="level-item navbar-button">
+              Blog
+            </Link>
+            <Link to="/about" className="level-item navbar-button">
+              About
+            </Link>
+          </div>
+        </div>
+      </nav>
+    )
+  };
+}
 
 export default Navbar

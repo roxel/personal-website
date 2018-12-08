@@ -12,31 +12,36 @@ export default class SprintIndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            <div className="content is-10 is-offset-1">
-              <h2 className="has-text-weight-bold is-size-2">Sprints</h2>
-              <p>
-                Sprints are little projects I'm working on every day. Possible areas of interest are very wide.
-                Many of them will be technological or related to business, but some may be personal and concern self-improvement in general.
-                Here I document all sprints, both finished and in progress.
-              </p>
-              {posts
-                .map(({ node: post }) => (
-                  <div
-                    key={post.id}
-                    style={{ marginBottom: "1.5em" }}
-                  >
-                    <h3
-                      style={{ marginBottom: "0.25em" }}
-                    >
-                      <Link className="has-text-primary" to={post.fields.slug}>
-                        {post.frontmatter.title}
-                      </Link>
-                      <span> &bull; </span>
-                      <small>{post.frontmatter.date} {post.frontmatter.finished && ' – ' + post.frontmatter.finished}</small>
-                    </h3>
-                    <p>{post.frontmatter.objective}</p>
-                  </div>
-                ))}
+            <div className="columns">
+              <div className="column is-8 is-offset-2">
+                <h1 className="title is-size-2 has-text-weight-bold">
+                  Sprints
+                </h1>
+                <div className="content">
+                  <p className="sprint-index-description">
+                    Sprints are little projects I'm working on most days. Possible areas of interest are very wide.
+                    Many of them will be technological or related to business, but some may be personal and concern self-improvement in general.
+                    Here I document all the sprints, both finished and in progress.
+                  </p>
+                  {posts
+                    .map(({ node: post }) => (
+                      <div
+                        key={post.id}
+                        className="sprint-index-item"
+                      >
+                        <h2 className="is-size-4 has-text-weight-bold">
+                          <Link className="has-text-primary" to={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </h2>
+                        <h3 className="is-size-5">
+                          <small>{post.frontmatter.date} {post.frontmatter.finished && ' – ' + post.frontmatter.finished}</small>
+                        </h3>
+                        <p>{post.frontmatter.objective}</p>
+                      </div>
+                    ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>

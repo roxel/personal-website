@@ -12,33 +12,40 @@ export default class BlogIndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            <div className="content">
-              <h2 className="has-text-weight-bold is-size-2">Blog</h2>
-            </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #333', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
+            <div className="columns">
+              <div className="column is-8 is-offset-2">
+                <h1 className="title is-size-2 has-text-weight-bold">
+                  Blog
+                </h1>
+                <div className="content">
+                  {posts
+                    .map(({ node: post }) => (
+                      <div
+                        key={post.id}
+                        className="blog-index-item"
+                      >
+                        <h2 className="is-size-4 has-text-weight-bold">
+                          <Link className="has-text-primary" to={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </h2>
+                        <h3 className="is-size-5">
+                          <small>{post.frontmatter.date}</small>
+                        </h3>
+                        <p>
+                          {post.excerpt}
+                        </p>
+                        <div>
+                          <Link className="button is-small" to={post.fields.slug}>
+                            Keep Reading →
+                          </Link>
+                        </div>
+                      </div>
+                    ))
+                  }
                 </div>
-              ))}
+              </div>
+            </div>
           </div>
         </section>
       </Layout>

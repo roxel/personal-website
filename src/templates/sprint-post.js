@@ -22,12 +22,10 @@ export const SprintPostTemplate = ({
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light has-text-primary">
+            <h1 className="title title-center is-size-2 has-text-weight-bold is-bold-light has-text-primary">
               {title}
             </h1>
-            <div
-              style={{ marginBottom: "2em" }}
-            >
+            <div className="sprint-post-info">
               <div>
                 <strong>Date started: </strong>
                 {date}

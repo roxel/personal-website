@@ -3,9 +3,16 @@
 // Config vars
 
 $primary: #fcbe32
-$primary-invert: #e1eef6
+$link: $primary
+$primary-invert: #0341cd
 $body-color: #333
+$body-size: 19px
 $family-primary: 'Montserrat', sans-serif
+
+
+::selection
+  color: #fff
+  background: $primary-invert
 
 .content .taglist
   list-style: none
@@ -38,5 +45,65 @@ $family-primary: 'Montserrat', sans-serif
 
 .margin-top-0
   margin-top: 0 !important
+
+.navigation .container .level
+  margin: 0 auto
+  max-width: 500px
+
+.navbar-logo
+  text-align: center
+  width: 100%
+  & > img
+    display: block
+    margin: 1em auto 2em
+    height: 1.5rem
+    width: 1.5rem
+
+.navbar-button
+  display: block
+  padding: 0 0.25rem !important
+  text-align: center
+  font-weight: bold
+  cursor: pointer
+
+.home-page-title
+  margin-bottom: 0!important
+
+.home-page-content
+  text-align: center
+
+  & > a:hover
+    background: $primary
+    color: #fff
+
+.page-index-item
+  margin-bottom: 1rem
+  h2
+    margin-bottom: 0 !important
+  h3
+    margin-top: 0 !important
+    margin-bottom: 0.25rem !important
+
+.blog-index-item
+  @extend .page-index-item
+  margin-bottom: 2.5rem
+
+.blog-post-date
+  margin-top: -1.25rem
+  margin-bottom: 3rem
+  text-align: center
+
+.sprint-index-description
+  margin-bottom: 2rem
+
+.sprint-index-item
+  @extend .page-index-item
+
+.sprint-post-info
+  text-align: center
+  margin-bottom: 2rem
+
+.title-center
+  text-align: center
 
 @import "~bulma"
