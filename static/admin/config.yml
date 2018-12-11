@@ -26,9 +26,9 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "sprint-post"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Date started", name: "date", widget: "date"}
+      - {label: "Date", name: "date", widget: "date"}
+      - {label: "Finished", name: "finished", widget: "date"}
       - {label: "Objective", name: "objective", widget: "text"}
-      - {label: "Result", name: "result", widget: "text"}
       - {label: "Body", name: "body", widget: "markdown"}
 
   - name: "pages"
