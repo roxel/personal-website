@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Piotr Roksela',
-    description: 'Personal website',
+    description: 'Software developer. Minimalism enthusiast.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
