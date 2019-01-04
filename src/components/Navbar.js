@@ -15,9 +15,6 @@ class Navbar extends React.Component {
             <Link to="/sprints" className="level-item navbar-button">
               Sprints
             </Link>
-            <Link to="/blog" className="level-item navbar-button">
-              Blog
-            </Link>
             <Link to="/about" className="level-item navbar-button">
               About
             </Link>

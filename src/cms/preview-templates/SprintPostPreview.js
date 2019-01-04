@@ -11,7 +11,7 @@ const SprintPostPreview = ({ entry, widgetFor }) => (
   />
 )
 
-BlogPostPreview.propTypes = {
+SprintPostPreview.propTypes = {
   entry: PropTypes.shape({
     getIn: PropTypes.func,
   }),
