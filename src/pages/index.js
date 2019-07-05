@@ -20,7 +20,7 @@ export default class IndexPage extends React.Component {
                       Software developer. Minimalism enthusiast.
                     </p>
                     <p>
-                      Contact me via <a href="mailto:piotr+website@roksela.pl">mail</a> or <a href="https://www.linkedin.com/in/piotr-roksela">linkedin</a>.
+                      Contact me via <a href="mailto:piotr+kofilabs@roksela.pl">mail</a> or <a href="https://www.linkedin.com/in/piotr-roksela">linkedin</a>.
                       <br />
                       Follow me on <a href="https://github.com/roxel">github</a> and <a href="https://www.instagram.com/therocksels/">instagram</a>.
                     </p>

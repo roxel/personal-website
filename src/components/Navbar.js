@@ -12,9 +12,9 @@ class Navbar extends React.Component {
             <img src={logo} alt="PR" />
           </Link>
           <div className="level is-mobile">
-            <Link to="/sprints" className="level-item navbar-button">
+            {/* <Link to="/sprints" className="level-item navbar-button">
               Sprints
-            </Link>
+            </Link> */}
             <Link to="/about" className="level-item navbar-button">
               About
             </Link>
